@@ -1,0 +1,1 @@
+загуглить разницу между git pull --rebase и git pull merge или git pull --ff-only
