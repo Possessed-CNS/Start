@@ -1,8 +1,9 @@
 const fs = require("fs");
 const readline = require("readline");
-
+//const data = [1,2,3,4,5]
+//const duplicates = [1,2,3]
 async function wrapAsync() {
-  const filePath = [""];
+  const filePath = ['txt/1.txt'];
   const data = [];
   const duplicates = [];
   for (let i = 0; i < filePath.length; i++) {
@@ -11,7 +12,7 @@ async function wrapAsync() {
       input: fileStream,
       crlfDelay: Infinity,
     });
-    for await (const line of rl) {
+    for (const line of rl) {
       if (!data.includes(line)) {
         data.push(line);
       } else {
@@ -22,7 +23,8 @@ async function wrapAsync() {
   console.log(data.length);
   console.log(duplicates.length);
 
-  fs.writeFileSync("./csv/stuff/444.json", JSON.stringify(data));
+  fs.writeFileSync("./json/data.json", JSON.stringify(data));
+  fs.writeFileSync("./json/dublicates.json", JSON.stringify(duplicates));
 }
 
 wrapAsync()
